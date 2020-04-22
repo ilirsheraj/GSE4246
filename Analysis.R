@@ -263,7 +263,7 @@ detach(package:dplyr)
 dicer_upregulated_ensemble <- select(hgu133plus2.db, keys=rownames(dicer_upregulated),
                                     columns=c("ENSEMBL", "SYMBOL","GENENAME"),
                                     keytype="PROBEID")
-write.csv(dicer_upregulated, file = "ago2_upregulated_significant.csv")
+
 dicer_upregulated_na <- dicer_upregulated_ensemble[!is.na(dicer_upregulated_ensemble$ENSEMBL), ]
 dicer_upregulated_unique <- dicer_upregulated_na %>% distinct(PROBEID, .keep_all = TRUE)
 dicer_up_ensemble_unique <- dicer_upregulated_unique %>% distinct(ENSEMBL, .keep_all = TRUE)
